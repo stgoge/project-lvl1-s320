@@ -1,8 +1,7 @@
 {
   "name": "hexlet-project-lvl1-german",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "Project1 from hexlet. Brain Games.",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -21,21 +20,23 @@
   "bugs": {
     "url": "https://github.com/stgoge/project-lvl1-s320/issues"
   },
+  "keywords": [
+    "hexlet",
+    "brain-games",
+    "project1"
+  ],
   "files": [
     "dist"
   ],
+    "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.2.0",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0"
+    "cross-env": "^5.2.0"
   },
-  "homepage": "https://github.com/stgoge/project-lvl1-s320#readme",
-  "dependencies": {
-    "readline-sync": "^1.4.9"
-  }
+  "homepage": "https://github.com/stgoge/project-lvl1-s320#readme"
 }
