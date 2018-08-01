@@ -1,3 +1,3 @@
-[![Maintainability](https://codeclimate.com/github/stgoge/project-lvl1-s320)](https://codeclimate.com/github/stgoge/project-lvl1-s320)
-[![Test Coverage](https://codeclimate.com/github/stgoge/project-lvl1-s320/test_coverage)](https://codeclimate.com/github/stgoge/project-lvl1-s320/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ce328d999053326579c5/maintainability)](https://codeclimate.com/github/stgoge/project-lvl1-s320/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ce328d999053326579c5/test_coverage)](https://codeclimate.com/github/stgoge/project-lvl1-s320/test_coverage)
 [![Build Status](https://travis-ci.org/stgoge/project-lvl1-s320.svg?branch=master)](https://travis-ci.org/stgoge/project-lvl1-s320)
