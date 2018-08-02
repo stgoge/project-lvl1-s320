@@ -9,16 +9,17 @@ const showWrongMessage = (userAnswer, answer, name) => {
 
 const gameProcess = (game) => {
   console.log('Welcome to the Brain Games!');
-  game.showRules();
+  console.log(game.gameRules);
+  console.log();
   const actualName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${actualName}!`);
   console.log();
   for (let i = 0; i < rightAnswersForWin; i += 1) {
-    const ask = game.generateQuestion();
-    console.log(`Question: ${ask.question}`);
+    const { question, answer } = game.generateAnswerAndQuestion();
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer !== ask.answer) {
-      showWrongMessage(userAnswer, ask.answer, actualName);
+    if (userAnswer !== answer) {
+      showWrongMessage(userAnswer, answer, actualName);
       return;
     }
     console.log('Correct!');

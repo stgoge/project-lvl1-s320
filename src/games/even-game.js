@@ -1,28 +1,22 @@
 import getRandomint from '../util';
 import gameProcess from '..';
 
-const numbersRange = {
-  min: 0,
-  max: 100,
-};
+const minNumber = 0;
+const maxNumber = 100;
 const answer = {
   even: 'yes',
   uneven: 'no',
 };
+const gameRules = `Answer "${answer.even}" if number even otherwise answer "${answer.uneven}".`;
 
 const isEven = number => number % 2 === 0;
 
-const showRules = () => {
-  console.log(`Answer "${answer.even}" if number even otherwise answer "${answer.uneven}".`);
-  console.log();
-};
-
-const generateQuestion = () => {
-  const randomNumber = getRandomint(numbersRange.min, numbersRange.max);
+const generateAnswerAndQuestion = () => {
+  const randomNumber = getRandomint(minNumber, maxNumber);
   return {
     question: randomNumber,
     answer: isEven(randomNumber) ? answer.even : answer.uneven,
   };
 };
 
-export default () => gameProcess({ showRules, generateQuestion });
+export default () => gameProcess({ gameRules, generateAnswerAndQuestion });

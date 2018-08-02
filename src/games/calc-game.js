@@ -1,10 +1,8 @@
 import getRandomInt from '../util';
 import gameProcess from '..';
 
-const numbersRange = {
-  min: 0,
-  max: 100,
-};
+const minNumber = 0;
+const maxNumber = 20;
 const operation = [
   {
     symbol: '+',
@@ -19,15 +17,11 @@ const operation = [
     calc: (a, b) => a * b,
   },
 ];
+const gameRules = 'What is the result of the expression?';
 
-const showRules = () => {
-  console.log('What is the result of the expression?');
-  console.log();
-};
-
-const generateQuestion = () => {
-  const firstRandomNumber = getRandomInt(numbersRange.min, numbersRange.max);
-  const secondRandomNumber = getRandomInt(numbersRange.min, numbersRange.max);
+const generateAnswerAndQuestion = () => {
+  const firstRandomNumber = getRandomInt(minNumber, maxNumber);
+  const secondRandomNumber = getRandomInt(minNumber, maxNumber);
   const operationNumber = getRandomInt(0, operation.length - 1);
   return {
     question: `${firstRandomNumber} ${operation[operationNumber].symbol} ${secondRandomNumber}`,
@@ -35,4 +29,4 @@ const generateQuestion = () => {
   };
 };
 
-export default () => gameProcess({ showRules, generateQuestion });
+export default () => gameProcess({ gameRules, generateAnswerAndQuestion });

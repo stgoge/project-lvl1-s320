@@ -1,32 +1,28 @@
 import getRandomint from '../util';
 import gameProcess from '..';
 
-const numbersRange = {
-  min: 0,
-  max: 20,
-};
-
-
-const showRules = () => {
-  console.log('Find the greatest common divisor of given numbers.');
-  console.log();
-};
+const minNumber = 0;
+const maxNumber = 20;
+const gameRules = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (a, b) => {
-  if (b) {
-    return getGCD(b, a % b);
-  }
-  return Math.abs(a);
+  const inner = (first, second) => {
+    if (second) {
+      return inner(second, first % second);
+    }
+    return Math.abs(first);
+  };
+  return inner(a > b ? b : a, a > b ? a : b);
 };
 
-const generateQuestion = () => {
-  const a = getRandomint(numbersRange.min, numbersRange.max);
-  const b = getRandomint(numbersRange.min, numbersRange.max);
-  const gcd = getGCD(a > b ? b : a, a > b ? a : b);
+const generateAnswerAndQuestion = () => {
+  const a = getRandomint(minNumber, maxNumber);
+  const b = getRandomint(minNumber, maxNumber);
+  const gcd = getGCD(a, b);
   return {
     question: `${a} ${b}`,
     answer: `${gcd}`,
   };
 };
 
-export default () => gameProcess({ showRules, generateQuestion });
+export default () => gameProcess({ gameRules, generateAnswerAndQuestion });
