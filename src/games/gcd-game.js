@@ -1,8 +1,9 @@
-import getRandomInt from '../misc/util';
+import getRandomint from '../util';
+import gameProcess from '..';
 
-const NumbersRange = {
-  MIN: 0,
-  MAX: 20,
+const numbersRange = {
+  min: 0,
+  max: 20,
 };
 
 
@@ -19,8 +20,8 @@ const getGCD = (a, b) => {
 };
 
 const generateQuestion = () => {
-  const a = getRandomInt(NumbersRange.MIN, NumbersRange.MAX);
-  const b = getRandomInt(NumbersRange.MIN, NumbersRange.MAX);
+  const a = getRandomint(numbersRange.min, numbersRange.max);
+  const b = getRandomint(numbersRange.min, numbersRange.max);
   const gcd = getGCD(a > b ? b : a, a > b ? a : b);
   return {
     question: `${a} ${b}`,
@@ -28,6 +29,6 @@ const generateQuestion = () => {
   };
 };
 
-module.exports = {
-  showRules, generateQuestion,
-};
+const startGame = () => gameProcess({ showRules, generateQuestion });
+
+export default startGame;

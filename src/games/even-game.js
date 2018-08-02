@@ -1,27 +1,30 @@
-import getRandomInt from '../misc/util';
+import getRandomint from '../util';
+import gameProcess from '..';
 
-const NumbersRange = {
-  MIN: 0,
-  MAX: 100,
+const numbersRange = {
+  min: 0,
+  max: 100,
 };
-const Answer = {
-  EVEN: 'yes',
-  UNEVEN: 'no',
+const answer = {
+  even: 'yes',
+  uneven: 'no',
 };
+
+const isEven = number => number % 2 === 0;
 
 const showRules = () => {
-  console.log(`Answer "${Answer.EVEN}" if number even otherwise answer "${Answer.UNEVEN}".`);
+  console.log(`Answer "${answer.even}" if number even otherwise answer "${answer.uneven}".`);
   console.log();
 };
 
 const generateQuestion = () => {
-  const randomNumber = getRandomInt(NumbersRange.MIN, NumbersRange.MAX);
+  const randomNumber = getRandomint(numbersRange.min, numbersRange.max);
   return {
     question: randomNumber,
-    answer: randomNumber % 2 === 0 ? Answer.EVEN : Answer.UNEVEN,
+    answer: isEven(randomNumber) ? answer.even : answer.uneven,
   };
 };
 
-module.exports = {
-  showRules, generateQuestion,
-};
+const startGame = () => gameProcess({ showRules, generateQuestion });
+
+export default startGame;

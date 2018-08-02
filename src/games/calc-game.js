@@ -1,21 +1,22 @@
-import getRandomInt from '../misc/util';
+import getRandomInt from '../util';
+import gameProcess from '..';
 
-const NumbersRange = {
-  MIN: 0,
-  MAX: 100,
+const numbersRange = {
+  min: 0,
+  max: 100,
 };
-const Operation = [
+const operation = [
   {
-    SYMBOL: '+',
-    CALC: (a, b) => a + b,
+    symbol: '+',
+    calc: (a, b) => a + b,
   },
   {
-    SYMBOL: '-',
-    CALC: (a, b) => a - b,
+    symbol: '-',
+    calc: (a, b) => a - b,
   },
   {
-    SYMBOL: '*',
-    CALC: (a, b) => a * b,
+    symbol: '*',
+    calc: (a, b) => a * b,
   },
 ];
 
@@ -25,15 +26,13 @@ const showRules = () => {
 };
 
 const generateQuestion = () => {
-  const firstRandomNumber = getRandomInt(NumbersRange.MIN, NumbersRange.MAX);
-  const secondRandomNumber = getRandomInt(NumbersRange.MIN, NumbersRange.MAX);
-  const operationNumber = getRandomInt(0, Operation.length - 1);
+  const firstRandomNumber = getRandomInt(numbersRange.min, numbersRange.max);
+  const secondRandomNumber = getRandomInt(numbersRange.min, numbersRange.max);
+  const operationNumber = getRandomInt(0, operation.length - 1);
   return {
-    question: `${firstRandomNumber} ${Operation[operationNumber].SYMBOL} ${secondRandomNumber}`,
-    answer: `${Operation[operationNumber].CALC(firstRandomNumber, secondRandomNumber)}`,
+    question: `${firstRandomNumber} ${operation[operationNumber].symbol} ${secondRandomNumber}`,
+    answer: `${operation[operationNumber].calc(firstRandomNumber, secondRandomNumber)}`,
   };
 };
 
-module.exports = {
-  showRules, generateQuestion,
-};
+export default () => gameProcess({ showRules, generateQuestion });
