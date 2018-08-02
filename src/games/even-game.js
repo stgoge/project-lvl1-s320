@@ -25,6 +25,4 @@ const generateQuestion = () => {
   };
 };
 
-const startGame = () => gameProcess({ showRules, generateQuestion });
-
-export default startGame;
+export default () => gameProcess({ showRules, generateQuestion });
