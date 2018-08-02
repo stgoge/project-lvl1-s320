@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { evenGame } from '../index';
+import game from '../games/even-game';
 
-console.log('Welcome to the Brain Games!');
-evenGame();
+game();
