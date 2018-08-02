@@ -7,39 +7,26 @@ export const askName = () => {
   return actualName;
 };
 
-export const evenGame = () => {
-  const NumbersRange = {
-    MIN: 0,
-    MAX: 100,
-  };
-  const Answer = {
-    EVEN: 'yes',
-    UNEVEN: 'no',
-  };
+export const gameProcess = (game) => {
   const RIGHT_ANSWERS_FOR_WIN = 3;
 
-  const getRandomInt = () => Math.floor(Math.random() * NumbersRange.MAX) + NumbersRange.MIN;
-
-  console.log(`Answer "${Answer.EVEN}" if number even otherwise answer "${Answer.UNEVEN}".`);
-  console.log();
-
   const actualName = askName();
-  const showWrongMessage = (answer, rightAnswer) => {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+  console.log('Welcome to the Brain Games!');
+  game.showRules();
+  const showWrongMessage = (userAnswer, answer) => {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
     console.log(`Let's try again, ${actualName}!`);
   };
 
-  let randomNumber;
-  let answer;
-  let rightAnswer;
+  let ask;
+  let userAnswer;
 
   for (let i = 0; i < RIGHT_ANSWERS_FOR_WIN; i += 1) {
-    randomNumber = getRandomInt();
-    rightAnswer = randomNumber % 2 === 0 ? Answer.EVEN : Answer.UNEVEN;
-    console.log(`Question: ${randomNumber}`);
-    answer = readlineSync.question('Your answer: ');
-    if (answer !== rightAnswer) {
-      showWrongMessage(answer, rightAnswer);
+    ask = game.generateQuestion();
+    console.log(`Question: ${ask.question}`);
+    userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer !== ask.answer) {
+      showWrongMessage(userAnswer, ask.answer);
       return;
     }
     console.log('Correct!');
