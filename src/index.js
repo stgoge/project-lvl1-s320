@@ -9,9 +9,8 @@ export const askName = () => {
 
 export const gameProcess = (game) => {
   const RIGHT_ANSWERS_FOR_WIN = 3;
-
-  const actualName = askName();
   console.log('Welcome to the Brain Games!');
+  const actualName = askName();
   game.showRules();
   const showWrongMessage = (userAnswer, answer) => {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
