@@ -12,10 +12,10 @@ const getProgression = () => {
   const start = getRandomint(progressionStartsMin, progressionStartsMax);
   const step = getRandomint(progressionStepMin, progressionStepMax);
   let current = start;
-  const progression = [current];
-  for (let i = 1; i < progressionLenght; i += 1) {
-    current += step;
+  const progression = [];
+  for (let i = 0; i < progressionLenght; i += 1) {
     progression.push(current);
+    current += step;
   }
   return progression;
 };
