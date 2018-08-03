@@ -9,7 +9,7 @@ const showWrongMessage = (userAnswer, answer, name) => {
 
 const gameProcess = (game) => {
   console.log('Welcome to the Brain Games!');
-  console.log(game.gameRules);
+  console.log(game.description);
   console.log();
   const actualName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${actualName}!`);
