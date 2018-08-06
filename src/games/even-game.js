@@ -17,4 +17,4 @@ const generateAnswerAndQuestion = () => {
   return { question, answer };
 };
 
-export default () => gameProcess({ description, generateAnswerAndQuestion });
+export default () => gameProcess(description, generateAnswerAndQuestion);

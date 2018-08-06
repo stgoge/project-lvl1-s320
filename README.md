@@ -8,7 +8,7 @@ There are 6 console games. Node.js Level 1 study project on [hexlet](https://hex
 ### Installation
 
 ```sh
-$ npm install hexlet-project-lvl1-german
+$ npm install -g hexlet-project-lvl1-german
 ```
 ### Games:
 
