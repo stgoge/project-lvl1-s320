@@ -7,15 +7,15 @@ const showWrongMessage = (userAnswer, answer, name) => {
   console.log(`Let's try again, ${name}!`);
 };
 
-const gameProcess = (game) => {
+const gameProcess = (description, generateAnswerAndQuestion) => {
   console.log('Welcome to the Brain Games!');
-  console.log(game.description);
+  console.log(description);
   console.log();
   const actualName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${actualName}!`);
   console.log();
   for (let i = 0; i < rightAnswersForWin; i += 1) {
-    const { question, answer } = game.generateAnswerAndQuestion();
+    const { question, answer } = generateAnswerAndQuestion();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer !== answer) {

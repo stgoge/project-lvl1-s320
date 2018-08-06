@@ -6,21 +6,16 @@ const maxNumber = 1000;
 const description = 'Balance the given number.';
 
 const getBalancedNumber = (number) => {
-  const digits = number.toString().split('').map(el => parseInt(el, 10));
-  const doBalance = (digs) => {
-    let min = { element: digs[0], i: 0 };
-    let max = { element: digs[0], i: 0 };
-    digs.forEach((element, i) => {
-      if (element > max.element) max = { element, i };
-      if (element < min.element) min = { element, i };
-    });
-    if (max.element - min.element < 2) return digs;
-    const newDigs = digs.slice();
-    newDigs[max.i] -= 1;
-    newDigs[min.i] += 1;
-    return doBalance(newDigs);
-  };
-  return doBalance(digits).sort().reduce((el, acc) => `${el}${acc}`, '');
+  const digits = number.toString().split('').map(Number);
+  const sum = digits.reduce((acc, digit) => digit + acc, 0);
+  const digitsCount = digits.length;
+  const big = Math.ceil(sum / digitsCount);
+  const bigCount = sum - digitsCount * (big - 1);
+  const newDigits = [];
+  for (let i = 0; i < digitsCount; i += 1) {
+    newDigits.unshift(i < bigCount ? big : big - 1);
+  }
+  return newDigits.reduce((el, acc) => `${el}${acc}`, '');
 };
 
 const generateAnswerAndQuestion = () => {
@@ -29,4 +24,4 @@ const generateAnswerAndQuestion = () => {
   return { question, answer };
 };
 
-export default () => gameProcess({ description, generateAnswerAndQuestion });
+export default () => gameProcess(description, generateAnswerAndQuestion);

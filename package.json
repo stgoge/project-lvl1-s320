@@ -1,6 +1,6 @@
 {
   "name": "hexlet-project-lvl1-german",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "Project1 from hexlet. Brain Games.",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
